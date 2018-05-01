@@ -70,8 +70,9 @@ class TablaDinamica extends HTMLElement{
             var row = importDocument.createElement('tr');
             for (let y in data[x]){
             if(x==0){
-        var celda = importDocument.createElement('th');
-        var texto = importDocument.createTextNode(y);
+        let celda = importDocument.createElement('th');
+        let texto = importDocument.createTextNode(y);
+        celda.contentEditable = "true";
         celda.appendChild(texto);
         row.appendChild(celda);
         let template = importDocument.querySelector('template').content;
@@ -82,14 +83,14 @@ class TablaDinamica extends HTMLElement{
         } 
 
         for(let i=0; i<data.length; i++){
-            var hilera = importDocument.createElement('tr'); //crea las hileras de la tabla
+            let hilera = importDocument.createElement('tr'); //crea las hileras de la tabla
             let array = getArray(data[i]);
             
             for(let j =0; j< col(data); j++){
                
-            var celda = importDocument.createElement('td');
-            var texto = importDocument.createTextNode(array[j]);
-            
+            let celda = importDocument.createElement('td');
+            let texto = importDocument.createTextNode(array[j]);
+            celda.contentEditable = "true";
             celda.appendChild(texto);
             hilera.appendChild(celda);  
             }
